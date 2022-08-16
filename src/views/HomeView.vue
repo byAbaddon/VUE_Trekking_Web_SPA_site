@@ -1,18 +1,11 @@
-<template>
-  <HelloWorld />
-</template>
 
-<script>
-import { defineComponent } from 'vue';
 
-// Components
-import HelloWorld from '../components/HelloWorld.vue';
+<script setup>
 
-export default defineComponent({
-  name: 'HomeView',
-
-  components: {
-    HelloWorld,
-  },
-});
 </script>
+
+
+
+<template>
+  <h1>Home Page</h1>
+</template>
