@@ -1,7 +1,18 @@
-<script setup>
-
-</script>
-
 <template>
- <h1>Home page test</h1>
+  <HelloWorld />
 </template>
+
+<script>
+import { defineComponent } from 'vue';
+
+// Components
+import HelloWorld from '../components/HelloWorld.vue';
+
+export default defineComponent({
+  name: 'HomeView',
+
+  components: {
+    HelloWorld,
+  },
+});
+</script>
