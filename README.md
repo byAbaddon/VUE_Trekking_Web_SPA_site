@@ -1,5 +1,5 @@
 #  trekking_web_spa_vue3_vue_pinia
-
+## Using:
 This template should help get you started developing with Vue 3 in Vite.
 
 ## Recommended IDE Setup
