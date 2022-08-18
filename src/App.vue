@@ -28,7 +28,7 @@ onBeforeMount(() => {
 
 
 <template>
-  <v-app>
+  <v-app >
     <header-component />
     <v-main id="main">
       <router-view />
@@ -42,8 +42,9 @@ onBeforeMount(() => {
 <style>
 *{
   font-family: cursive;
-  
 }
+
+
 #main{
   background-image: url("../src/assets/images/annapurna.jpg");
   background-size:cover;
@@ -78,7 +79,7 @@ a{
   color: rgb(218, 218, 218);
   transition: ease-in-out color .15s;
 }
-.site-header a :hover {
+.site-header  a :hover {
   color: #fff;
   text-decoration: none;
 }
@@ -196,12 +197,15 @@ form label{
 }
 
 #fouronefour{
-   margin: 0 auto;
-   width: 100%;
-   margin-bottom: 2%;
+   width: 50%;
+   margin:1.5em auto;
    border:solid;
    border-color: rgba(27, 27, 27, 0.904);
    box-shadow: 0 0 2rem 0 rgba(0, 0, 0, 0.76);
+}
+
+.container{
+  margin: 0 auto;
 }
 
 .alert{

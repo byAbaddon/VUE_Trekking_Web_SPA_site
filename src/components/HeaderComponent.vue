@@ -5,27 +5,35 @@
 <template>
   <div class="bg-grey-darken-3">
     <nav class="site-header sticky-top py-1 mb-0">
-      <div class="ml-12 container d-flex justify-space-around">
-        <img
-          class=""
-          src="../assets/images/logo.png"
-          alt="logo"
-          style="width: 4%"
-        />
+      
+      <img
+        class=""
+        src="../assets/images/logo.png"
+        alt="logo"
+        style="width: 4%"
+      />
+      <div v-if="0"  class="ml-12 container d-flex justify-space-between">
+        <br>
         <router-link to="/login">
           <a class="header-hover py-2 d-none d-md-inline-block">Login</a>
         </router-link>
+        <router-link to="/register">
+          <a class="header-hover py-2 d-none d-md-inline-block">Register</a>
+        </router-link>
+      </div>
+
+      <div v-else class="ml-12 container d-flex justify-space-between">
+        <br>
         <router-link to="">
           <a class="header-hover py-2 d-none d-md-inline-block">Request Trek</a>
         </router-link>
         <router-link to="">
-          <a class="header-hover py-2 d-none d-md-inline-block">Hello, username</a>
+          <a class="header-hover py-2 d-none d-md-inline-block"
+            >Hello, username</a
+          >
         </router-link>
         <router-link to="/">
           <a class="header-hover py-2 d-none d-md-inline-block">Logout</a>
-        </router-link>
-        <router-link to="/register">
-          <a class="header-hover py-2 d-none d-md-inline-block">Register</a>
         </router-link>
       </div>
     </nav>
