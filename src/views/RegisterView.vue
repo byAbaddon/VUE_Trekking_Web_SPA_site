@@ -1,11 +1,16 @@
 <script setup>
-
+const onBtnRegister = e => {
+  const username = e.target[0].value
+  const password = e.target[1].value
+  const rePassword = e.target[2].value
+  console.log(username, password, rePassword);
+ }
 </script>
 
 
 <template>
   <div>
-      <form action="#" method="post">
+      <form action="#" method="post" @submit.prevent="onBtnRegister">
 
     <div class="text-center mb-4">
       <h1 class="h3 mb-3 font-weight-normal">Register</h1>
@@ -29,14 +34,18 @@
       <label for="inputRePassword">Re-Password</label>
     </div>
 
-    <button class="btn btn-lg btn-dark btn-block" type="submit">Sign Up</button>
+    <button class="btn btn-lg btn-dark btn-block" type="submit">
+      <p>Sign Up</p>
+    </button>
 
     <div class="text-center mb-4">
       <p class="alreadyUser"> Already have account? Then just
-        <a href="#">Sign-In</a>!
+        <router-link to="/login">
+           <a href="#">Sign-In</a>!
+        </router-link>
       </p>
     </div>
-    <p class="mt-5 mb-3 text-muted text-center">© The Trekking Zone - 2019.</p>
+    <p class="mt-5 mb-3 text-muted text-center">© The Trekking Zone - 2022.</p>
   </form>
 
 

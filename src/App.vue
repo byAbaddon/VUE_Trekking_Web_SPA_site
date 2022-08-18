@@ -134,7 +134,7 @@ a.trek-details:hover{
   border: 2px solid #333;
 }
 
-form,.profile,.home{
+form, .profile,.home{
     background-color:rgba(255, 255, 255, 0.479);
     padding:2%;
     width: 80%;
@@ -144,11 +144,15 @@ form,.profile,.home{
     border-radius:1rem;
     border-color:rgb(241, 179, 6);
     box-shadow:0 0 1.5rem 0 rgba(0, 0, 0, 0.712);
+    text-align: center;
 }
 
 input.form-control{
+    padding:7px;
     width: 50%;
     margin: 0 auto;
+    background: white;
+    border-radius: 3px;
 }
 
 textarea.form-control{
@@ -171,9 +175,14 @@ form label{
 
 .btn{
   width: 25%;
+  padding:7px;
   margin: 0 auto;
-  background-color: rgba(51, 51, 51, 0.842);
+  border-radius:6px;
   color: white;
+  background-color: rgba(51, 51, 51, 0.842);
+}
+.btn > p:nth-child(1){
+  color:white;
 }
 
 .alreadyUser{
