@@ -12,8 +12,9 @@ const onIconBtn = (e) => {
 
 
 <template>
-<v-footer 
-   class="bg-blue-grey-darken-4 text-white text-center d-flex flex-column">
+<v-footer
+   class="footer bg-blue-grey-darken-4 text-white text-center d-flex flex-column">
+   
     <div>
       <v-btn
         v-for="icon in icons"
