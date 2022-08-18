@@ -69,7 +69,7 @@ a{
  * Custom translucent site header
  */
 
-.site-header {
+.site-header{
   background-color: rgba(75, 73, 73, 0.904);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
   backdrop-filter: saturate(180%) blur(20px);
@@ -78,9 +78,16 @@ a{
   color: rgb(218, 218, 218);
   transition: ease-in-out color .15s;
 }
-.site-header a:hover {
+.site-header a :hover {
   color: #fff;
   text-decoration: none;
+}
+
+.header-hover:hover {
+   color: #5b9bc5;
+   text-decoration: none;
+   cursor:pointer;
+   
 }
 
 .flex-equal > * {

@@ -1,25 +1,39 @@
 
 <script setup>
-
 </script>
 
 <template>
-<div class="bg-grey-darken-3">
-    <nav class="site-header sticky-top py-1 mb-0"> 
-    <div class=" ml-12 container d-flex   justify-space-around ">
-      <img class="" src="../assets/images/logo.png" alt="logo" style="width:4%;"> 
-      <a class="py-2 d-none d-md-inline-block" href="#">Request Trek</a>
-      <a class="py-2 d-none d-md-inline-block" href="#">Hello, username</a>
-      <a class="py-2 d-none d-md-inline-block" href="#">Logout</a>
-      <a class="py-2 d-none d-md-inline-block" href="#">Login</a>
-      <a class="py-2 d-none d-md-inline-block" href="#">Register</a>
+  <div class="bg-grey-darken-3">
+    <nav class="site-header sticky-top py-1 mb-0">
+      <div class="ml-12 container d-flex justify-space-around">
+        <img
+          class=""
+          src="../assets/images/logo.png"
+          alt="logo"
+          style="width: 4%"
+        />
+        <router-link to="/login">
+          <a class="header-hover py-2 d-none d-md-inline-block">Login</a>
+        </router-link>
+        <router-link to="">
+          <a class="header-hover py-2 d-none d-md-inline-block">Request Trek</a>
+        </router-link>
+        <router-link to="">
+          <a class="header-hover py-2 d-none d-md-inline-block">Hello, username</a>
+        </router-link>
+        <router-link to="/">
+          <a class="header-hover py-2 d-none d-md-inline-block">Logout</a>
+        </router-link>
+        <router-link to="/register">
+          <a class="header-hover py-2 d-none d-md-inline-block">Register</a>
+        </router-link>
       </div>
-  </nav>
-</div>
+    </nav>
+  </div>
 </template>
 
 <style  scoped>
-img{
+img {
   left: 25px;
 }
 </style>
