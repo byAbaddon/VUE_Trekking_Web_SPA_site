@@ -167,7 +167,7 @@ form, .profile,.home{
 }
 
 input.form-control{
-    padding:7px;
+    padding:5px;
     width: 50%;
     margin: 0 auto;
     background: white;
@@ -178,7 +178,7 @@ textarea.form-control{
     width: 50%;
     margin: 0 auto;
     resize: none;
-    height: 20vh;
+    height: 12vh;
 }
 .buttons-together{
   margin: auto;

@@ -1,6 +1,11 @@
-
-
 <script setup>
+  import {useRouter, useRoute  } from "vue-router";
+  const router = useRouter()
+
+const onBtnTrek = (e => {
+  console.log(e);
+  router.push('/details-trek')
+})
 </script>
 
 
@@ -46,7 +51,7 @@
             <h2>What do you have in mind?</h2>
             <div class="no-found-details">Be the first explorer!</div>
             <div class="actions mt-3">
-              <router-link to="/about">
+              <router-link to="/add-trek">
                 <a class="btn btn-dark btn-lg">Create the first trek </a>
               </router-link>
             </div>
@@ -62,7 +67,7 @@
           <v-col v-for="n in 9" :key="n" class="d-flex child-flex" col="4">
             <div
               style="min-width: 20rem"
-              @click="onBtnTrek"
+              @click="onBtnTrek(1)"
               class=" card overflow-hidden treksPlaceholder trek-details trek-hover "
             >
               <div class="mt-1">

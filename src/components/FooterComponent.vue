@@ -33,7 +33,7 @@ const onIconBtn = (e) => {
    <v-divider></v-divider>
 
     <div class="text-white">
-      <strong>Vuetify 3.0 Beta</strong>
+      <strong>Bootstrap and Vuetify 3.0 Beta</strong>
     </div>
  
   </v-footer>

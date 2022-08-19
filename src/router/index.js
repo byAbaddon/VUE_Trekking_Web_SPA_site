@@ -20,9 +20,24 @@ const router = createRouter({
       component: () => import('@/views/LoginView.vue')
     },
     {
-      path: '/about',
-      name: 'about',
-      component: () => import('@/views/AboutView.vue')
+      path: '/details-trek',
+      name: 'detailsTrek',
+      component: () => import('@/views/DetailsTrekView.vue')
+    },
+    {
+      path: '/add-trek',
+      name: 'addTrek',
+      component: () => import('@/views/AddTrekView.vue')
+    },
+    {
+      path: '/edit-trek',
+      name: 'editTrek',
+      component: () => import('@/views/EditTrekView.vue')
+    },
+    {
+      path: '/user-statistic',
+      name: 'user',
+      component: () => import('@/views/UserStatisticView.vue')
     }
   ]
 })

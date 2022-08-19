@@ -24,10 +24,10 @@
 
       <div v-else class="ml-12 container d-flex justify-space-between">
         <br>
-        <router-link to="">
-          <a class="header-hover py-2 d-none d-md-inline-block">Request Trek</a>
+        <router-link to="/add-trek">
+          <a class="header-hover py-2 d-none d-md-inline-block">RequestTrek</a>
         </router-link>
-        <router-link to="">
+        <router-link to="/user-statistic">
           <a class="header-hover py-2 d-none d-md-inline-block"
             >Hello, username</a
           >
