@@ -7,7 +7,7 @@
     <nav class="site-header sticky-top py-1 mb-0">
       
       <img
-        class=""
+        class="logo-image"
         src="../assets/images/logo.png"
         alt="logo"
         style="width: 4%"

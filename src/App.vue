@@ -43,7 +43,15 @@ onBeforeMount(() => {
 *{
   font-family: cursive;
 }
-
+html {
+  font-family: cursive;
+ /*  Disable drag Introduced in IE 10.*/
+  -moz-user-select: -moz-none;
+   -khtml-user-select: none;
+   -webkit-user-select: none;
+   -ms-user-select: none;
+    user-select: none;
+}
 
 #main{
   background-image: url("../src/assets/images/annapurna.jpg");
@@ -123,6 +131,7 @@ footer p{
 }
 .card-image{
   max-height: 50%;
+  max-width: 24.5%;
 }
 .card-text{
   top:10px;
@@ -133,6 +142,15 @@ a.trek-details:hover{
   background: #333;
   color: white;
   border: 2px solid #333;
+}
+
+.trek-hover:hover{
+  text-decoration: none;
+  background: #333;
+  color: white;
+  border: 2px solid #333;
+  cursor:pointer;
+ 
 }
 
 form, .profile,.home{
@@ -288,7 +306,7 @@ content: '';
 padding-top: 100%;
 }
 
-img {
+.logo-image {
 display: block;
 width:100%;
 height: auto;
