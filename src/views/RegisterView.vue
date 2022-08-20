@@ -1,16 +1,67 @@
+
+
 <script setup>
+import register from "@/service/register";
+import updateUserProfile from "@/service/updateUserProfile"
+import { ref} from "vue";
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+let showBtn = ref(true)
+let typeMessage = ref('')
+let messageAlert = ref('')
+
 const onBtnRegister = e => {
   const username = e.target[0].value
-  const password = e.target[1].value
-  const rePassword = e.target[2].value
-  console.log(username, password, rePassword);
- }
+  const photoURL = e.target[1].value || '../assets/images/user.png'
+  const email = e.target[2].value
+  const password = e.target[3].value
+  const rePassword = e.target[4].value
+  // console.log(username, photoURL, email, password, rePassword);
+  if (password != rePassword) {
+    showBtn.value = false
+    typeMessage.value = 'error' 
+    messageAlert.value = 'Error - Password not match!'
+
+    setTimeout(() => {
+      showBtn.value = true
+      e.target[3].value = e.target[4].value = ''
+    }, 2000);
+  
+   
+  } else {
+      register(email, password).then((message) => {
+          //new user success register
+          updateUserProfile(username, photoURL); //update profile /add name and photo
+
+        if (message == "success") {
+          showBtn.value = false
+          typeMessage.value = 'success'
+          messageAlert.value = 'You register success and will be redirect...'
+           setTimeout(() => {
+             document.getElementById('registerForm').reset()
+             router.push("/login") //redirect to page
+           }, 2000);   
+ 
+          } else {
+             showBtn.value = false
+             typeMessage.value = 'error'
+             messageAlert.value = message
+             setTimeout(() => (showBtn.value = true), 3000);
+          }
+        })
+      }
+
+      return{ messageAlert, typeMessage, showBtn}
+}
+
+ 
 </script>
 
 
 <template>
-  <div>
-      <form action="#" method="post" @submit.prevent="onBtnRegister">
+  <div style="width: 80%; margin:0 auto; margin-top:1em; margin-bottom: 2em;">
+      <form id="registerForm" @submit.prevent="onBtnRegister">
 
     <div class="text-center mb-4">
       <h1 class="h3 mb-3 font-weight-normal">Register</h1>
@@ -18,25 +69,42 @@ const onBtnRegister = e => {
     </div>
 
     <div class="form-label-group">
-      <input type="text" id="inputUsername" name="username" class="form-control" placeholder="Username" required=""
-        autofocus="">
-      <label for="inputUsername">Username</label>
+      <input type="text" id="inputUsername" name="username" class="form-control" placeholder="Username" required
+        autofocus>
+      <label for="inputUsername"></label>
     </div>
 
     <div class="form-label-group">
-      <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required="">
-      <label for="inputPassword">Password</label>
+      <input type="text" id="photoURL" name="photoURL" class="form-control" placeholder="PhotoURL  https://  Not required"
+        autofocus>
+      <label for="inputUsername"></label>
+    </div>
+
+     <div class="form-label-group">
+      <input type="email" id="photoEmail" name="email" class="form-control" placeholder="Email"
+        autofocus required>
+      <label for="inputUsername"></label>
+    </div>
+
+    <div class="form-label-group">
+      <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password"
+       required  minlength="6">
+      <label for="inputPassword"></label>
     </div>
 
     <div class="form-label-group">
       <input type="password" id="inputRePassword" name="rePassword" class="form-control" placeholder="Re-Password"
-        required="">
-      <label for="inputRePassword">Re-Password</label>
+        required  minlength="6">
+      <label for="inputRePassword"></label>
     </div>
-
-    <button class="btn btn-lg btn-dark btn-block" type="submit">
-      <p>Sign Up</p>
-    </button>
+    <div>
+      <button v-if="showBtn" class="btn btn-lg btn-dark btn-block" type="submit">
+          <p>Sign Up</p>
+      </button>
+       <v-alert v-else :type="typeMessage">{{messageAlert}}</v-alert>
+       <!-- <v-alert v-show="!showBtn" type="success">Success Register! You will be redirect...</v-alert> -->
+    </div>
+ 
 
     <div class="text-center mb-4">
       <p class="alreadyUser"> Already have account? Then just

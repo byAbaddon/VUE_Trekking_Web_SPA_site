@@ -10,6 +10,7 @@
   "dependencies": {
     "@mdi/font": "5.9.55",
     "bootstrap": "^5.2.0",
+    "firebase": "^9.9.3",
     "jquery": "^3.6.0",
     "pinia": "^2.0.17",
     "roboto-fontface": "*",
