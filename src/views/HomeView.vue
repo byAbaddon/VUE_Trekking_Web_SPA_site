@@ -1,6 +1,9 @@
 <script setup>
-  import {useRouter, useRoute  } from "vue-router";
-  const router = useRouter()
+import {useRouter, useRoute  } from "vue-router";
+import { useDataStore } from "@/stores/userData";
+
+const userData = useDataStore()
+const router = useRouter()
 
 const onBtnTrek = (e => {
   console.log(e);
@@ -11,7 +14,7 @@ const onBtnTrek = (e => {
 
 <template>
   <!--  user login no trek-->
-  <div v-if="0" class="home d-md-flex flex-md-equal my-md-8 pl-md-3">
+  <div v-if="!userData.isAuth" class="home d-md-flex flex-md-equal my-md-8 pl-md-3">
     <div style="padding-left: 7%; padding-top: 3%" class="col-md-7">
       <h2 class="featurette-heading">
         Here you will find the treks you've

@@ -31,10 +31,10 @@ const onBtnRegister = e => {
    
   } else {
       register(email, password).then((message) => {
-          //new user success register
-          updateUserProfile(username, photoURL); //update profile /add name and photo
-
         if (message == "success") {
+           //new user success register
+           updateUserProfile(username, photoURL); //update profile /add name and photo
+
           showBtn.value = false
           typeMessage.value = 'success'
           messageAlert.value = 'You register success and will be redirect...'
@@ -55,7 +55,6 @@ const onBtnRegister = e => {
       return{ messageAlert, typeMessage, showBtn}
 }
 
- 
 </script>
 
 

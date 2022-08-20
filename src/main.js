@@ -10,6 +10,7 @@ import { firebaseSDK } from '@/service/sdk'
 loadFonts()
 
 createApp(App)
+  .use(createPinia())
   .use(router)
   .use(vuetify)
   .mount('#app')
