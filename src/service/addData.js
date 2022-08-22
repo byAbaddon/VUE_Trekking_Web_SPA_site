@@ -1,11 +1,11 @@
 import { db } from '@/service/sdk'
 import { collection, addDoc } from "firebase/firestore"; 
 
-const addData = async (newEventObj) => {
+const addData = async (newTrekObj) => {
 
   try {
-    const docRef = await addDoc(collection(db, "events"), {
-      ...newEventObj
+    const docRef = await addDoc(collection(db, "treks"), {
+      ...newTrekObj
     })
     console.log("Document written with Success by ID: ", docRef.id)
     return docRef.id
