@@ -17,10 +17,10 @@ const onIconBtn = (e) => {
    
     <div>
       <v-btn
-        v-for="icon in icons"
-        :key="icon"
-        :to="`${icon == 'mdi-home' ? '/' : ''}`"
-        class="mx-4 text-white"
+        v-for="(icon,index ) in icons"
+        :key="index"
+        :to="`${icon == 'mdi-home' ?  '/' : ''}`"
+        :class="index === 1 ? 'rainbow-animation': 'mx-4 text-white'"
         :icon="icon"
         variant="text"
         @click="onIconBtn"
@@ -38,3 +38,5 @@ const onIconBtn = (e) => {
  
   </v-footer>
 </template>
+
+

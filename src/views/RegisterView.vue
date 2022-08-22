@@ -61,7 +61,9 @@ const onBtnRegister = e => {
 <template>
   <div style="width: 80%; margin:0 auto; margin-top:1em; margin-bottom: 2em;">
       <form id="registerForm" @submit.prevent="onBtnRegister">
-
+         <v-btn class="float-end"  variant="text" @click="router.push('/')">
+           <v-icon color="red" size="30"  >mdi-window-close</v-icon>
+        </v-btn>
     <div class="text-center mb-4">
       <h1 class="h3 mb-3 font-weight-normal">Register</h1>
       <p>Join our family and make a wish!</p>

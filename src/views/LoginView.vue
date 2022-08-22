@@ -41,6 +41,9 @@ const onBtnLogin = e => {
 <template>
   <div style="width: 70%;margin: 0 auto; margin-top:2em"  >
     <form id="loginFrom"   @submit.prevent="onBtnLogin">
+      <v-btn class="float-end"  variant="text" @click="router.push('/')">
+        <v-icon color="red" size="30"  >mdi-window-close</v-icon>
+      </v-btn>
       <div class="text-center">
         <h1 class="h3 mb-3 font-weight-normal">Login</h1>
       </div>

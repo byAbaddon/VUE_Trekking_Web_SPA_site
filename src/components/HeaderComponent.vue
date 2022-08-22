@@ -7,9 +7,9 @@ const userData = useDataStore()
 
 <template>
   <div class="bg-grey-darken-3">
-    <nav class="site-header sticky-top py-1 mb-0">
+    <nav class="site-header sticky-top mb-0">
       <!-- User Not Login-->
-      <v-icon color="yellow-darken-3" size="30" class="mt-1 ml-4 float-start"> mdi-image-filter-hdr</v-icon> 
+      <v-icon color="yellow-darken-3" size="30" class="mt-1 ml-4  float-start"> mdi-image-filter-hdr</v-icon> 
       <div v-if="!userData.isAuth"  class="ml-12 container d-flex float-right"> 
         <router-link to="/login">
           <a class="header-hover py-2 d-none d-md-inline-block mr-12">Login</a>

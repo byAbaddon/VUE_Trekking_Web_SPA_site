@@ -378,4 +378,22 @@ transform: translate(-50%, -50%);
 .no-found-template{
 color: rgba(255, 255, 255, 0.513);
 }
+
+
+.rainbow-animation {
+  background-image: 
+    linear-gradient(to right, red,orange,yellow,green, red); 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;  
+   animation: rainbow-animation 35s linear infinite;
+}
+
+@keyframes rainbow-animation {
+    to {
+        background-position: 10vh;
+    }
+}
+
+
+
 </style>
