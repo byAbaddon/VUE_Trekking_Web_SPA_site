@@ -1,8 +1,8 @@
 <script setup>
 import { useDataStore } from "@/stores/userData";
-
+import { useRoute } from "vue-router";
 const userData = useDataStore()
-
+const route = useRoute()
 </script>
 
 <template>
@@ -27,7 +27,7 @@ const userData = useDataStore()
           <a class="header-hover py-2 d-none d-md-inline-block">RequestTrek</a>
         </router-link>
          
-        <router-link to="/user-statistic">
+        <router-link :to="`${route.name == 'user' ? '/' : '/user-statistic'}`">
           <a class="header-hover py-2 d-none d-md-inline-block"
             >Hello, <span class=" text-grey text-decoration-underline" >{{ userData.data.displayName || 'Anonymous'}}</span> </a
           >
