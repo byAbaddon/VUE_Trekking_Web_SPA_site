@@ -380,20 +380,18 @@ color: rgba(255, 255, 255, 0.513);
 }
 
 
-.rainbow-animation {
+.rainbow-text {
   background-image: 
-    linear-gradient(to right, red,orange,yellow,green, red); 
+    linear-gradient(to right, red,orange,yellow,green,white); 
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;  
-   animation: rainbow-animation 35s linear infinite;
 }
 
-@keyframes rainbow-animation {
-    to {
-        background-position: 10vh;
-    }
+.re-rainbow-text {
+  background-image: 
+    linear-gradient(to left, red,orange,yellow,green,white); 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;  
 }
-
-
 
 </style>

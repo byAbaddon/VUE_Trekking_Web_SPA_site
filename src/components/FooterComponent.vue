@@ -20,19 +20,19 @@ const onIconBtn = (e) => {
         v-for="(icon,index ) in icons"
         :key="index"
         :to="`${icon == 'mdi-home' ?  '/' : ''}`"
-        :class="index === 1 ? 'rainbow-animation': 'mx-4 text-white'"
+        class="mx-4 text-white"
         :icon="icon"
         variant="text"
         @click="onIconBtn"
       ></v-btn>
     </div>
 
-    <div class="text-white pt-0">
+    <div class="text-white pt-0 rainbow-text">
      WEB Single Page Application using Vue 3 Composition Vuex-Pinia
     </div>
    <v-divider></v-divider>
 
-    <div class="text-white">
+    <div class="text-white re-rainbow-text">
       <strong>Bootstrap and Vuetify 3.0 Beta</strong>
     </div>
  

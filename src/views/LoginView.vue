@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from "vue";
+import { ref ,onMounted } from "vue";
 import { useRouter } from "vue-router";
 import singUser  from "../service/login"; 
 import getUserProfileData from "@/service/getUserProfileData";
@@ -10,10 +10,16 @@ const storeLoginFnc =  userData.login
 const router = useRouter()
 const checkLogin = ref(true)
 
+onMounted(() => {
+  setTimeout(() => {
+    const form = document.getElementById('loginForm')
+    form != null ? form.reset() : null
+  }, 500);
+})
 
 const onBtnLogin = e => {
-  const username = e.target[0].value
-  const password = e.target[1].value
+  const username = e.target[1].value
+  const password = e.target[2].value
 
 
   singUser(username, password).then(message => {
@@ -51,28 +57,28 @@ const onBtnLogin = e => {
         <input
           autofocus
           type="email"
-          id="inputUsername"
-          name="email"
+          id="loginEmail"
+          name="loginEmail"
           class="form-control"
           placeholder="Email"
           required
           value="koko@abv.bg"
         />
-        <label for="inputUsername">Email</label>
+        <label for="loginEmail">Email</label>
       </div>
 
       <div class="form-label-group">
         <input
           type="password"
-          id="inputPassword"
-          name="password"
+          id="loginPassword"
+          name="loginPassword"
           class="form-control"
           placeholder="Password"
           minlength="6"
           required
           value="111111"
         />
-        <label for="inputPassword">Password</label>
+        <label for="loginPassword">Password</label>
       </div>
       <div>
       <button v-if="checkLogin" class="btn btn-lg btn-dark btn-block" type="submit">

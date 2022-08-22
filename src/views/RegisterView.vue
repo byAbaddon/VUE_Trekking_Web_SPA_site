@@ -3,7 +3,7 @@
 <script setup>
 import register from "@/service/register";
 import updateUserProfile from "@/service/updateUserProfile"
-import { ref} from "vue";
+import { onMounted, ref} from "vue";
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
@@ -11,14 +11,25 @@ let showBtn = ref(true)
 let typeMessage = ref('')
 let messageAlert = ref('')
 
+onMounted(() => {
+  setTimeout(() => {
+    const form = document.getElementById('registerForm')
+    form != null ? form.reset() : null
+  }, 500);
+})
+
 const onBtnRegister = e => {
-  const username = e.target[0].value
-  const photoURL = e.target[1].value || '../assets/images/user.png'
-  const email = e.target[2].value
-  const password = e.target[3].value
-  const rePassword = e.target[4].value
-  // console.log(username, photoURL, email, password, rePassword);
-  if (password != rePassword) {
+  const username = e.target[1].value
+  let photoURL = e.target[2].value || '../assets/images/user.png'
+  const email = e.target[3].value
+  const password = e.target[4].value
+  const rePassword = e.target[5].value
+  console.log(username, photoURL, email, password, rePassword);
+   if (!/.+@.+\..+/.test(photoURL)) {
+     photoURL = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCvPW4n2sq5EZhgjLF3U0iEZAMfkAE-J0nOA&usqp=CAUo"
+   }
+           console.log('done' , photoURL);
+  if (password != rePassword) { 
     showBtn.value = false
     typeMessage.value = 'error' 
     messageAlert.value = 'Error - Password not match!'
@@ -33,6 +44,7 @@ const onBtnRegister = e => {
       register(email, password).then((message) => {
         if (message == "success") {
            //new user success register
+        
            updateUserProfile(username, photoURL); //update profile /add name and photo
 
           showBtn.value = false
@@ -70,21 +82,22 @@ const onBtnRegister = e => {
     </div>
 
     <div class="form-label-group">
-      <input type="text" id="inputUsername" name="username" class="form-control" placeholder="Username" required
+      <input type="text" id="inputUsername" name="inputUsername" class="form-control" placeholder="Username" required
         autofocus maxlength="20">
       <label for="inputUsername"></label>
     </div>
 
     <div class="form-label-group">
-      <input type="text" id="photoURL" name="photoURL" class="form-control" placeholder="PhotoURL  https://  Not required"
-        autofocus>
-      <label for="inputUsername"></label>
+      <input type="text" id="inputPhotoURL" name="photoURL" class="form-control" placeholder="PhotoURL  https://  Not required"
+        autofocus
+        >
+      <label for="inputPhotoURL"></label>
     </div>
 
      <div class="form-label-group">
-      <input type="email" id="photoEmail" name="email" class="form-control" placeholder="Email"
+      <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email"
         autofocus required>
-      <label for="inputUsername"></label>
+      <label for="inputEmail"></label>
     </div>
 
     <div class="form-label-group">
