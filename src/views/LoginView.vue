@@ -23,10 +23,8 @@ const onBtnLogin = e => {
         const [userName, userPhoto] = userData
         console.log(userName, userPhoto)
         router.push('/')
-         storeLoginFnc()
-         console.log( 'data from store' ,   userData.then(e => console.log(e)));
-
-      })
+        storeLoginFnc()
+     })
     } else {
       checkLogin.value = false
       setTimeout(() => {
@@ -55,6 +53,7 @@ const onBtnLogin = e => {
           class="form-control"
           placeholder="Email"
           required
+          value="koko@abv.bg"
         />
         <label for="inputUsername">Email</label>
       </div>
@@ -66,8 +65,9 @@ const onBtnLogin = e => {
           name="password"
           class="form-control"
           placeholder="Password"
-          required
           minlength="6"
+          required
+          value="111111"
         />
         <label for="inputPassword">Password</label>
       </div>

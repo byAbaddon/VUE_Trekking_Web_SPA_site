@@ -1,18 +1,18 @@
 import { defineStore } from 'pinia'
-import { loadAllEvents, events } from "@/service/loadAllEvents";
+import { loadAllTreks } from "../service/loadAllTreks.js";
 
 
-export const useEventStore = defineStore('events', {
+export const useTrekStore = defineStore('treks', {
   state: () => ({
-    allEvents: []
+    allTreks: []
 
   }),
   
   getters: {},
   
   actions: {
-     updateEvents() {
-      loadAllEvents().then(data => this.allEvents = data)
+    updateTreks() {
+      loadAllTreks().then(data => this.allTreks = data)
     } 
   },
 

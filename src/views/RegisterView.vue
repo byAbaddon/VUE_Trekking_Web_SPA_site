@@ -69,7 +69,7 @@ const onBtnRegister = e => {
 
     <div class="form-label-group">
       <input type="text" id="inputUsername" name="username" class="form-control" placeholder="Username" required
-        autofocus>
+        autofocus maxlength="20">
       <label for="inputUsername"></label>
     </div>
 

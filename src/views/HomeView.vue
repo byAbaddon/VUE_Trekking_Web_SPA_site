@@ -1,9 +1,15 @@
 <script setup>
+import { onMounted } from "vue";
 import {useRouter, useRoute  } from "vue-router";
-import { useDataStore } from "@/stores/userData";
+import { useTrekStore } from "../stores/treks";
+import { useDataStore } from "../stores/userData";
 
+const trekStore = useTrekStore()    
 const userData = useDataStore()
+
 const router = useRouter()
+
+onMounted(() =>  trekStore.updateTreks())
 
 const onBtnTrek = (e => {
   console.log(e);
@@ -43,7 +49,7 @@ const onBtnTrek = (e => {
   <!--  user login -->
   <div v-else>
     <!--  user login but not have any trek-->
-    <div v-if="0" class="container">
+    <div v-if="!trekStore.allTreks" class="container">
       <div class="row">
         <div class="col-md-12">
           <div id="fouronefour">
@@ -67,21 +73,21 @@ const onBtnTrek = (e => {
     <div v-else>
       <div class="my-4">
         <v-row>
-          <v-col v-for="n in 9" :key="n" class="d-flex child-flex" col="4">
+          <v-col v-for="(trek, index) in trekStore.allTreks" :key="index" class="d-flex child-flex" col="4">
             <div
               style="min-width: 20rem"
               @click="onBtnTrek(1)"
               class=" card overflow-hidden treksPlaceholder trek-details trek-hover "
             >
               <div class="mt-1">
-                <p class="card-text">Everest Base Camp</p>
+                <p class="card-text">{{trek.name}}</p>
               </div>
 
               <div>
                 <v-img
-                  :src="`https://picsum.photos/500/300?image=${n * 5 + 10}`"
-                  :lazy-src="`https://picsum.photos/10/6?image=${n * 5 + 10}`"
-                  aspect-ratio="1.3"
+                  :src="trek.imageURL"
+                  :lazy-src="`https://picsum.photos/10/6?image=${index * 5 + 10}`"
+                  aspect-ratio="1.2"
                 >
                 </v-img>
               </div>

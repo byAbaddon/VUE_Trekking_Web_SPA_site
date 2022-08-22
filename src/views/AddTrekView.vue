@@ -1,4 +1,7 @@
 <script setup>
+import { useTrekStore } from "../stores/treks";
+const trek = useTrekStore()    
+
 const onBtnAddTrek = (e => {
   const [location , date, description, image]  = e.target
   console.log(location.value, date.value);
