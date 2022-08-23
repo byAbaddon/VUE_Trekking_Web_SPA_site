@@ -12,8 +12,7 @@ const router = useRouter()
 onMounted(() =>  trekStore.updateTreks())
 
 const onBtnTrek = (e => {
-  console.log(e.location, e.id);
-  router.push('/details-trek')
+  router.push({ name: 'detailsTrek', params: { id: e.id }})
 })
 </script>
 
