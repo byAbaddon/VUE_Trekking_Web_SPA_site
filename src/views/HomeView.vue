@@ -80,7 +80,7 @@ const onBtnTrek = (e => {
               class=" card overflow-hidden treksPlaceholder trek-details trek-hover "
             >
               <div class="mt-1">
-                <p class="card-text">{{trek.name}}</p>
+                <p class="card-text">{{trek.location}}</p>
               </div>
 
               <div>

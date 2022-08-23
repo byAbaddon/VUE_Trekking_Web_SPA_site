@@ -22,7 +22,7 @@ const onBtnAddTrek = (e => {
   // ◦add  Organizer: string representing the current trek creator;
   // ◦add  Likes: number starting from 0;
      const newTrekObj = {
-        location: location.value, image: image.value, 'organizer' : userData.localData.uid,
+        location: location.value, imageURL: image.value, 'organizer' : userData.localData.uid,
         date: date.value, description: description.value, likes: 0, voters: []
       };
             
@@ -34,8 +34,7 @@ const onBtnAddTrek = (e => {
       if (!checkIsTrekExist) {
             addData(newTrekObj)
               .then((id) => {
-                //get generated ID and add to trek object
-                
+                //get generated ID and add to trek object   
                 updateData(id, Object.assign({}, {id} , newTrekObj))
                   .then(e => console.log('Success update and add ID'))
                   .catch(e => console.log('Fail to update' , e.error) )
@@ -67,11 +66,8 @@ const onBtnAddTrek = (e => {
 
       setTimeout(() => {
         showAlert.value = false
+        document.getElementById('create-form').reset()
       }, 3000);
-       
-
-
-
  })
 </script>
 
@@ -79,7 +75,7 @@ const onBtnAddTrek = (e => {
 
 <template>
 <div class="my-5 mx-auto" style="max-width: 70rem">
-   <form class="create-trek" @submit.prevent="onBtnAddTrek" >
+   <form id="create-form" class="create-trek" @submit.prevent="onBtnAddTrek" >
      <v-btn class="float-end"  variant="text" @click="router.push('/')">
         <v-icon color="red" size="30"  >mdi-window-close</v-icon>
       </v-btn>
@@ -99,7 +95,7 @@ const onBtnAddTrek = (e => {
     </div>
 
     <div class="form-label-group" style="">
-      <textarea  minlength="6" maxlength="120"  type="text"  name="description" class="form-control bg-white pa-1" placeholder="Description" required></textarea>
+      <textarea  minlength="6" maxlength="200"  type="text"  name="description" class="form-control bg-white pa-1" placeholder="Description" required></textarea>
       <label for="inputTrekDescription">Description</label>
     </div>
 
