@@ -2,6 +2,7 @@
 import { useTrekStore } from "../stores/treks";
 import { useDataStore } from "../stores/userData";
 import { addData } from "../service/addData";
+import { updateData } from "../service/updateData";
 import { useRouter } from "vue-router";
 import { ref } from "vue";
 
@@ -32,8 +33,14 @@ const onBtnAddTrek = (e => {
       
       if (!checkIsTrekExist) {
             addData(newTrekObj)
-              .then((e) => {
-                console.log("Success add new trek to collection", e)
+              .then((id) => {
+                //get generated ID and add to trek object
+                
+                updateData(id, Object.assign({}, {id} , newTrekObj))
+                  .then(e => console.log('Success update and add ID'))
+                  .catch(e => console.log('Fail to update' , e.error) )
+
+                console.log("Success add new trek to collection", id)
                  showAlert.value = true;
                 alertType.value = 'success'
                 message.value = 'Success add new trek to collection'
@@ -43,6 +50,8 @@ const onBtnAddTrek = (e => {
                 setTimeout(() => {
                   router.push('/')
                 }, 3000);
+
+         
             
             })
             .catch((e) => {

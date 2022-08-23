@@ -12,7 +12,7 @@ const router = useRouter()
 onMounted(() =>  trekStore.updateTreks())
 
 const onBtnTrek = (e => {
-  console.log(e);
+  console.log(e.location, e.id);
   router.push('/details-trek')
 })
 </script>
@@ -76,7 +76,7 @@ const onBtnTrek = (e => {
           <v-col v-for="(trek, index) in trekStore.allTreks" :key="index" class="d-flex child-flex" col="4">
             <div
               style="min-width: 20rem"
-              @click="onBtnTrek(1)"
+              @click="onBtnTrek(trek)"
               class=" card overflow-hidden treksPlaceholder trek-details trek-hover "
             >
               <div class="mt-1">
