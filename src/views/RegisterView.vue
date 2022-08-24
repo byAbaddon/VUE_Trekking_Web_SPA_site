@@ -5,7 +5,9 @@ import register from "@/service/register";
 import updateUserProfile from "@/service/updateUserProfile"
 import { onMounted, ref} from "vue";
 import { useRouter } from 'vue-router'
+import { useDisplay } from 'vuetify'
 
+const { mobile, name } = useDisplay()
 const router = useRouter()
 let showBtn = ref(true)
 let typeMessage = ref('')
@@ -71,7 +73,9 @@ const onBtnRegister = e => {
 
 
 <template>
-  <div style="width: 80%; margin:0 auto; margin-top:1em; margin-bottom: 2em;">
+  <div style="width: 80%; margin:0 auto; margin-top:1em; margin-bottom: 2em;"
+      :class="name == 'xs' ? 'w-100' : 'w-80'"
+  >
       <form id="registerForm" @submit.prevent="onBtnRegister">
          <v-btn class="float-end"  variant="text" @click="router.push('/')">
            <v-icon color="red" size="30"  >mdi-window-close</v-icon>
@@ -112,7 +116,7 @@ const onBtnRegister = e => {
       <label for="inputRePassword"></label>
     </div>
     <div>
-      <button v-if="showBtn" class="btn btn-lg btn-dark btn-block" type="submit">
+      <button v-if="showBtn" class="btn btn-lg btn-dark btn-block " type="submit">
           <p>Sign Up</p>
       </button>
        <v-alert v-else :type="typeMessage">{{messageAlert}}</v-alert>

@@ -4,7 +4,9 @@ import { useRouter } from "vue-router";
 import singUser  from "../service/login"; 
 import getUserProfileData from "@/service/getUserProfileData";
 import { useDataStore } from "../stores/userData";
+import { useDisplay } from 'vuetify'
 
+const { mobile, name } = useDisplay()
 const userData = useDataStore()
 const storeLoginFnc =  userData.login
 const router = useRouter()
@@ -45,7 +47,9 @@ const onBtnLogin = e => {
 
 
 <template>
-  <div style="width: 70%;margin: 0 auto; margin-top:2em"  >
+  <div style="width: 70%;margin: 0 auto; margin-top:2em" 
+   :class="name == 'xs' ? 'w-100' : 'w-80'"
+   >
     <form id="loginFrom"   @submit.prevent="onBtnLogin">
       <v-btn class="float-end"  variant="text" @click="router.push('/')">
         <v-icon color="red" size="30"  >mdi-window-close</v-icon>

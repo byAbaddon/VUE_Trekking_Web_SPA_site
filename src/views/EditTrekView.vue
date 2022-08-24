@@ -21,10 +21,7 @@ const onBtnAddTrek = () => {
   const description = form.get('description')
   const imageURL = form.get('imageURL')
   const likes = form.get('likes')
-
-  console.log(location, data, description, imageURL, likes);
   
-
   updateData(id, { organizer, id, imageURL, date, description, location, likes, voters } )
     .then(e => {
       currentLikes.value = likes

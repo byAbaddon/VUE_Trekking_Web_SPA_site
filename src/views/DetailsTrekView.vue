@@ -44,15 +44,18 @@ const onBtnLike = (e) => {
 
   let check = voters.includes(userData.data.uid);
   if (!check) {
+    typeMessage.value = "success";
+    messageAlert.value = 'Thank for you like!'
     currentLikes.value++;
     likes += 1;
     voters.push(userData.data.uid);
     updateData(routeTrekId, { organizer, id, imageURL, date, description, location, likes, voters, })
       .then((e) => console.log("Success update"))
       .catch((e) => console.log(e.error));
-    typeMessage.value = "success";
+    
   } else {
     typeMessage.value = "error";
+    messageAlert.value = "You already liked this trek!"
     console.log("You already liked this trek!");
   }
   setTimeout(() => {
@@ -86,18 +89,18 @@ const onBtnLike = (e) => {
           <div v-if="!typeMessage">
             <v-btn @click="onBtnEdit" variant="outlined">
               Edit the trek
-              <v-icon color="black-darken-3" size="30">
+              <v-icon color="black-darken-3" size="18">
                 mdi-hammer-screwdriver</v-icon
               >
             </v-btn>
 
             <v-btn class="mx-4" @click="onBtnDelete" variant="outlined">
               Delete the trek
-              <v-icon color="red-darken-3" size="30"> mdi-close-circle </v-icon>
+              <v-icon color="red-darken-3" size="18"> mdi-close-circle </v-icon>
             </v-btn>
             <v-btn @click="onBtnExit" variant="outlined">
               Exit
-              <v-icon color="blue-darken-3" size="30"> mdi-exit-run</v-icon>
+              <v-icon color="blue-darken-3" size="18"> mdi-exit-run</v-icon>
             </v-btn>
           </div>
 
@@ -111,16 +114,16 @@ const onBtnLike = (e) => {
           <div v-if="!typeMessage">
             <v-btn class="mr-6" @click="onBtnLike" variant="outlined">
               Like
-              <v-icon color="yellow-darken-3" size="30"> mdi-heart</v-icon>
+              <v-icon color="yellow-darken-3" size="18"> mdi-heart</v-icon>
             </v-btn>
             <v-btn @click="onBtnExit" variant="outlined">
               Exit
-              <v-icon color="blue-darken-3" size="30"> mdi-exit-run</v-icon>
+              <v-icon color="blue-darken-3" size="18"> mdi-exit-run</v-icon>
             </v-btn>
           </div>
 
           <div v-else>
-            <v-alert :type="typeMessage">You already liked this trek!</v-alert>
+            <v-alert :type="typeMessage">{{messageAlert}}</v-alert>
           </div>
         </div>
       </div>

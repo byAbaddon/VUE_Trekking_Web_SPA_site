@@ -69,7 +69,7 @@ const onBtnTrek = (e => {
 
     <!--  list of treks-->
     <div v-else>
-      <div class="my-4">
+      <div class="my-4 mx-auto">
         <v-row>
           <v-col v-for="(trek, index) in trekStore.allTreks" :key="index" class="d-flex child-flex" col="4">
             <div

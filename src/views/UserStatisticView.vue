@@ -7,6 +7,11 @@ const trekStore = useTrekStore()
 const userData = useDataStore()
 const router = useRouter()
 
+let treksOwners = trekStore.allTreks
+.filter(x => userData.data.uid == x.organizer)
+.map(x => x.location).sort((a, b) => a.localeCompare(b)) 
+
+  
 </script>
 
 <template>
@@ -22,11 +27,11 @@ const router = useRouter()
    
     <div class="profile-info">
       <p>Username: <span class="text-red-darken-4">{{userData.data.displayName}}</span></p>
-      <p class="infoType">Wished <span class="text-brown-darken-2" >({{trekStore.allTreks.length}})</span> treks list:</p>
-        <div v-if="trekStore.allTreks.length">
-          <ul v-for="(trek, index) in trekStore.allTreks" :key="index"   style="list-style-type: none;">
+      <p class="infoType">Wished <span class="text-brown-darken-2" >({{treksOwners.length}})</span> treks list:</p>
+        <div v-if="treksOwners.length">
+          <ul v-for="(trek, index) in treksOwners" :key="index"   style="list-style-type: none;">
             <li :class="!(index & 1) ? 'text-yellow-darken-4' : 'text-indigo'" >
-              {{trek.location}}
+              {{trek}}
             </li>
           </ul>
            </div>

@@ -86,12 +86,12 @@ const onBtnAddTrek = e => {
     </div>
 
     <div class="form-label-group">
-      <input type="date"  name="dateTime" class="form-control" placeholder="Date" required>
+      <input type="date"  name="dateTime" class=" date form-control" placeholder="Date" required>
       <label for="inputTrekDate">Date</label>
     </div>
 
     <div class="form-label-group" style="">
-      <textarea  minlength="6" maxlength="200"  type="text"  name="description" class="form-control bg-white pa-1" placeholder="Description" required></textarea>
+      <textarea style=""   minlength="6" maxlength="200"  type="text"  name="description" class="form-control bg-white pa-1" placeholder="Description" required></textarea>
       <label for="inputTrekDescription">Description</label>
     </div>
 
@@ -118,3 +118,4 @@ const onBtnAddTrek = e => {
 </div>
 
 </template>
+
