@@ -30,7 +30,7 @@ const router = createRouter({
       component: () => import('@/views/AddTrekView.vue')
     },
     {
-      path: '/edit-trek',
+      path: '/edit-trek/:id',
       name: 'editTrek',
       component: () => import('@/views/EditTrekView.vue')
     },

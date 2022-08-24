@@ -6,7 +6,6 @@ import { useDataStore } from "../stores/userData";
 
 const trekStore = useTrekStore()    
 const userData = useDataStore()
-
 const router = useRouter()
 
 onMounted(() =>  trekStore.updateTreks())

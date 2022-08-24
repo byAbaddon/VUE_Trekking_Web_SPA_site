@@ -14,9 +14,7 @@ let showAlert = ref(false)
 let alertType = ref('')
 let message = ref('')
 
-
-
-const onBtnAddTrek = (e => {
+const onBtnAddTrek = e => {
   const [_, location, date, description, image] = e.target
 
   // ◦add  Organizer: string representing the current trek creator;
@@ -49,8 +47,6 @@ const onBtnAddTrek = (e => {
                 setTimeout(() => {
                   router.push('/')
                 }, 3000);
-
-         
             
             })
             .catch((e) => {
@@ -68,7 +64,7 @@ const onBtnAddTrek = (e => {
         showAlert.value = false
         document.getElementById('create-form').reset()
       }, 3000);
- })
+ }
 </script>
 
 

@@ -11,7 +11,6 @@ const userData = useDataStore();
 const router = useRouter();
 const routeTrekId = useRoute().params.id;
 let { organizer, id, imageURL, date, description, location, likes, voters } = trekStore.allTreks.find((x) => x.id == routeTrekId);
- 
 let currentLikes = ref(likes);
 let typeMessage = ref("");
 let messageAlert = ref("");
@@ -21,26 +20,20 @@ let hideBtn = ref(true)
 
 const onBtnExit = () => router.go(-1);
 
-const onBtnEdit = (e) => {
-  console.log(e.currentTarget.textContent, "edit");
-};
+const onBtnEdit = (e) => router.push({name:'editTrek' , params:{id}})
 
-const onBtnDelete = () => {
-  confirmDialog.value = true
-};
+
+const onBtnDelete = () => confirmDialog.value = true
+
 
 const onDeleteTrek = () => {
- 
    deleteData(id)
      .then(() => {
        console.log('The trek was deleted success')
       messageConfirm.value = 'The trek was deleted success!'
        hideBtn.value = false
       setTimeout(() => router.push('/') , 2000);
-        
-   
-  
-      
+
     })
     .catch(e => console.log(e.error))
 }
@@ -135,7 +128,7 @@ const onBtnLike = (e) => {
      <!-- delete dialog confirm -->          
           <div class="text-center">
               <v-dialog
-              v-show="confirmDialog"
+           
               transition="dialog-top-transition"
                 v-model="confirmDialog"
                 activator="parent"
