@@ -2,6 +2,7 @@
 import { useDataStore } from "../stores/userData";
 import { useTrekStore } from "../stores/treks";
 import { updateData } from "../service/updateData";
+import { deleteData } from "../service/deleteData";
 import { useRouter, useRoute } from "vue-router";
 import { ref } from "vue";
 
@@ -9,11 +10,14 @@ const trekStore = useTrekStore();
 const userData = useDataStore();
 const router = useRouter();
 const routeTrekId = useRoute().params.id;
-let { organizer, id, imageURL, date, description, location, likes, voters } =
-  trekStore.allTreks.find((x) => x.id == routeTrekId);
+let { organizer, id, imageURL, date, description, location, likes, voters } = trekStore.allTreks.find((x) => x.id == routeTrekId);
+ 
 let currentLikes = ref(likes);
 let typeMessage = ref("");
 let messageAlert = ref("");
+let confirmDialog = ref(false)
+let messageConfirm = ref('Are you sure to want to delete this trek ?')
+let hideBtn = ref(true)
 
 const onBtnExit = () => router.go(-1);
 
@@ -21,10 +25,26 @@ const onBtnEdit = (e) => {
   console.log(e.currentTarget.textContent, "edit");
 };
 
-const onBtnDelete = (e) => {
-  console.log(id);
-  // console.log({...currentTrek.value } , "delete");
+const onBtnDelete = () => {
+  confirmDialog.value = true
 };
+
+const onDeleteTrek = () => {
+ 
+   deleteData(id)
+     .then(() => {
+       console.log('The trek was deleted success')
+      messageConfirm.value = 'The trek was deleted success!'
+       hideBtn.value = false
+      setTimeout(() => router.push('/') , 2000);
+        
+   
+  
+      
+    })
+    .catch(e => console.log(e.error))
+}
+
 
 const onBtnLike = (e) => {
   //checking if he has already in liked list
@@ -112,5 +132,26 @@ const onBtnLike = (e) => {
         </div>
       </div>
     </div>
+     <!-- delete dialog confirm -->          
+          <div class="text-center">
+              <v-dialog
+              v-show="confirmDialog"
+              transition="dialog-top-transition"
+                v-model="confirmDialog"
+                activator="parent"
+              >
+                <v-card>
+                  <v-card-text class="bg-black text-white font-italic">
+                   {{messageConfirm}}
+                  </v-card-text >
+                  <v-card-actions class="bg-black d-flex justify-space-around ">
+                    <v-btn  v-show="hideBtn"  variant="flat" color="green"   @click="onDeleteTrek">Yes</v-btn>
+                    <v-btn  v-show="hideBtn"  variant="flat" color="error"  @click="confirmDialog=false">No</v-btn>
+                    <v-icon color="red" v-show="!hideBtn">mdi-trash-can-outline</v-icon>
+                  </v-card-actions>
+                </v-card>
+              </v-dialog>
+          </div>
+
   </div>
 </template>
