@@ -24,11 +24,11 @@ const onBtnTrek = (e => {
         <span class="text-highlighted">always dreamed about!</span>
       </h2>
       <p class="lead d-flex ml-12">1. Join our family.</p>
-      <p style="" class="lead">2. Request the trek you've always wanted.</p>
+      <p style="" class="lead ml-8">2. Request the trek you've always wanted.</p>
       <p style="padding-left: 0%" class="lead">
         3. Find people who like your idea.
       </p>
-      <p style="padding-left: 5%" class="lead ml-12">
+      <p class="lead ml-9">
         4. Find people who like your idea.
       </p>
       <p class="lead mt-12">

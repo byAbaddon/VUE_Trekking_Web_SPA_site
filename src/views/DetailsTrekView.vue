@@ -32,7 +32,10 @@ const onDeleteTrek = () => {
        console.log('The trek was deleted success')
       messageConfirm.value = 'The trek was deleted success!'
        hideBtn.value = false
-      setTimeout(() => router.push('/') , 2000);
+       setTimeout(() => {
+        confirmDialog.value = false
+        router.push('/') 
+      }, 2000);
 
     })
     .catch(e => console.log(e.error))

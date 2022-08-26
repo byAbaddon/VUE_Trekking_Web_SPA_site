@@ -126,8 +126,6 @@ const onBtnAddTrek = () => {
          <div v-else class="mx-auto">
             <v-alert     
               class="mx-auto"
-              height="50"
-              width="47em"
               :type="alertType == 'success'? 'success' : 'error'"
             >
               {{ alertMessage }}
