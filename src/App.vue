@@ -180,6 +180,15 @@ textarea.form-control{
     resize: none;
     height: 12vh;
 }
+
+input, textarea {
+  min-width: 12em;
+}
+button {
+  min-width: 8em;
+}
+
+
 .buttons-together{
   margin: auto;
   margin-top:2%;
@@ -273,13 +282,12 @@ margin-bottom: 2%;
 }
 
 .treksPlaceholder{
-  background-color:rgba(255, 255, 255, 0.849);
-flex: 0 1 30%;
-margin: 2%;
-max-width:25%;
+  background-color:rgba(255, 255, 255, 0.795);
+
 border:solid;
 border-color:rgb(241, 179, 6);
 box-shadow:0 0 1.5rem 0 rgba(0, 0, 0, 0.712);
+border-radius: 4%;
 }
 
 #treks-list{

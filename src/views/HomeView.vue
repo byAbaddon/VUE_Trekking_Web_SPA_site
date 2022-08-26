@@ -15,11 +15,10 @@ const onBtnTrek = (e => {
 })
 </script>
 
-
 <template>
   <!--  user login no trek-->
-  <div v-if="!userData.isAuth" class="home d-md-flex flex-md-equal my-md-8 pl-md-3">
-    <div style="padding-left: 7%; padding-top: 3%" class="col-md-7">
+  <div v-if="!userData.isAuth" class="home d-md-flex flex-md-equal my-6" style="height: 90%; width: 60%; min-width: 20em;" >
+    <div style="padding-top: 3%" class="col-md-7 mx-auto">
       <h2 class="featurette-heading">
         Here you will find the treks you've
         <span class="text-highlighted">always dreamed about!</span>
@@ -35,7 +34,8 @@ const onBtnTrek = (e => {
       <p class="lead mt-12">
         If you find enough supporters, we will organize everything for you!
       </p>
-    </div>
+    
+   </div>
     <div class="col-md-5">
       <img
         class="home-picture"
@@ -70,22 +70,23 @@ const onBtnTrek = (e => {
     <!--  list of treks-->
     <div v-else>
       <div class="my-4 mx-auto">
-        <v-row>
-          <v-col v-for="(trek, index) in trekStore.allTreks" :key="index" class="d-flex child-flex" col="4">
+        <v-row  class="mx-auto">
+          <v-col v-for="(trek, index) in trekStore.allTreks" :key="index" col="4"  class="d-flex child-flex" >
             <div
               style="min-width: 20rem"
               @click="onBtnTrek(trek)"
-              class=" card overflow-hidden treksPlaceholder trek-details trek-hover "
+              class=" treksPlaceholder trek-details trek-hover "
             >
               <div class="mt-1">
                 <p class="card-text">{{trek.location}}</p>
               </div>
 
-              <div>
+            <div style="max-width:320px ;" class="mt-4 mb-3   mx-auto my-auto">
                 <v-img
                   :src="trek.imageURL"
                   :lazy-src="`https://picsum.photos/10/6?image=${index * 5 + 10}`"
-                  aspect-ratio="1.2"
+                  aspect-ratio="1.3"
+                  cover
                 >
                 </v-img>
               </div>

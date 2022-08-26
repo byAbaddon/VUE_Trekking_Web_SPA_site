@@ -73,7 +73,7 @@ const onBtnRegister = e => {
 
 
 <template>
-  <div style="width: 80%; margin:0 auto; margin-top:1em; margin-bottom: 2em;"
+  <div style="width: 80%; min-width: 20em;   margin:0 auto; margin-top:1em; margin-bottom: 2em;"
       :class="name == 'xs' ? 'w-100' : 'w-80'"
   >
       <form id="registerForm" @submit.prevent="onBtnRegister">

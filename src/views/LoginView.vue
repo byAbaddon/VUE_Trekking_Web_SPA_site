@@ -47,8 +47,8 @@ const onBtnLogin = e => {
 
 
 <template>
-  <div style="width: 70%;margin: 0 auto; margin-top:2em" 
-   :class="name == 'xs' ? 'w-100' : 'w-80'"
+  <div style="width: 70%; min-width: 20em;   margin: 0 auto; margin-top:2em" 
+   :class="name == 'xs' ? 'w-90' : 'w-80'"
    >
     <form id="loginFrom"   @submit.prevent="onBtnLogin">
       <v-btn class="float-end"  variant="text" @click="router.push('/')">
@@ -85,7 +85,9 @@ const onBtnLogin = e => {
         <label for="loginPassword">Password</label>
       </div>
       <div>
-      <button v-if="checkLogin" class="btn btn-lg btn-dark btn-block" type="submit">
+      <button v-if="checkLogin" class="btn btn-lg btn-dark btn-block" type="submit"
+     
+      >
         <p>Sign In</p>
       </button>
       <v-alert v-else type="error">'Error! Fail to login. Wrong email or password...'</v-alert>

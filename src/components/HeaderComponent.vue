@@ -48,6 +48,8 @@ const onMenuBtn = path => {
           </v-list-item>
         </v-list>
       </v-menu>
+       <v-spacer></v-spacer>
+       <v-btn  disabled>{{name == 'xs' ? 'Phone' : 'Tablet'}} Version</v-btn>
     </v-app-bar>
 
  <nav v-else  class="site-header sticky-top mb-0">

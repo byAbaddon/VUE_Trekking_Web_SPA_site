@@ -7,7 +7,7 @@ let treks = []
 const loadAllTreks = async () => {
   treks = []
   const getCollection = collection(db, "treks")                                     
-  const sortedCollection = query( getCollection, orderBy("likes", ))  //'desc    
+  const sortedCollection = query( getCollection, orderBy("likes", 'desc' ))  //'desc    
   const querySnapshot = await getDocs(sortedCollection)   
 
     querySnapshot.forEach((doc) => {

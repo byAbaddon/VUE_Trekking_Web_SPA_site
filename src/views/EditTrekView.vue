@@ -17,10 +17,10 @@ let alertMessage = ref('')
 const onBtnAddTrek = () => {
  let form = new FormData(document.getElementById('edit'))
   const location = form.get('location')
-  const data = form.get('dateTime')
+  const date = form.get('dateTime')
   const description = form.get('description')
   const imageURL = form.get('imageURL')
-  const likes = form.get('likes')
+  const likes = Number(form.get('likes'))
   
   updateData(id, { organizer, id, imageURL, date, description, location, likes, voters } )
     .then(e => {
@@ -42,7 +42,7 @@ const onBtnAddTrek = () => {
 </script>
 
 <template>
- <div class="my-5 mx-auto" style="max-width: 70rem">
+ <div class="my-5 mx-auto" style="max-width: 70em; min-width: 23em;">
     <form id="edit" class="create-trek" @submit.prevent="onBtnAddTrek">
       <div style="margin:0 92%">
           <v-btn class="float" variant="text" @click="router.push('/')">
@@ -133,10 +133,7 @@ const onBtnAddTrek = () => {
               {{ alertMessage }}
             </v-alert>
           </div>
-
     </form>
   </div>
 </template>
-
-
 

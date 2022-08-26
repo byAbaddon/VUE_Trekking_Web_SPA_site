@@ -65,10 +65,10 @@ const onBtnLike = (e) => {
 </script>
 
 <template>
-  <div style="width: 80%; margin: 0 auto; margin-top: 1em; margin-bottom: 2em">
+  <div style="width: 72%; min-width: 23em;  margin: 0 auto; margin-top: 1em; margin-bottom: 2em">
     <div class="row single-trek-details text-center">
       <div class="col-md-12 text-center overflow-hidden">
-        <img class="details-img" style="border-radius: 6px" :src="imageURL" />
+        <img class="details-img" style="border-radius: 6px; min-width: 10em" :src="imageURL" />
         <div class="overflow-hidden my-3 p-3">
           <h2 class="display-5">{{ location }}</h2>
           <p class="infoType">Description:</p>
@@ -94,7 +94,7 @@ const onBtnLike = (e) => {
               >
             </v-btn>
 
-            <v-btn class="mx-4" @click="onBtnDelete" variant="outlined">
+            <v-btn class="mx-4 my-2" @click="onBtnDelete" variant="outlined">
               Delete the trek
               <v-icon color="red-darken-3" size="18"> mdi-close-circle </v-icon>
             </v-btn>
@@ -112,7 +112,7 @@ const onBtnLike = (e) => {
         <!-- no owner  able to make like -->
         <div v-else>
           <div v-if="!typeMessage">
-            <v-btn class="mr-6" @click="onBtnLike" variant="outlined">
+            <v-btn class="mr-1" @click="onBtnLike" variant="outlined">
               Like
               <v-icon color="yellow-darken-3" size="18"> mdi-heart</v-icon>
             </v-btn>
