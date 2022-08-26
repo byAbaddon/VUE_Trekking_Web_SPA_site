@@ -20,8 +20,8 @@ const onBtnAddTrek = e => {
   // ◦add  Organizer: string representing the current trek creator;
   // ◦add  Likes: number starting from 0;
      const newTrekObj = {
-        location: location.value, imageURL: image.value, 'organizer' : userData.localData.uid,
-        date: date.value, description: description.value, likes: 0, voters: [], owner : userData.localData.displayName
+        location: location.value, imageURL: image.value, 'organizer' : userData.data.uid,
+        date: date.value, description: description.value, likes: 0, voters: [], owner : userData.data.displayName
       };
             
   //check is trek in collection
