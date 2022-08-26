@@ -10,7 +10,7 @@ const trekStore = useTrekStore();
 const userData = useDataStore();
 const router = useRouter();
 const routeTrekId = useRoute().params.id;
-let { organizer, id, imageURL, date, description, location, likes, voters } = trekStore.allTreks.find((x) => x.id == routeTrekId);
+let { organizer, id, imageURL, date, description, location, owner, likes, voters } = trekStore.allTreks.find((x) => x.id == routeTrekId);
 let currentLikes = ref(likes);
 let typeMessage = ref("");
 let messageAlert = ref("");
@@ -52,7 +52,7 @@ const onBtnLike = (e) => {
     currentLikes.value++;
     likes += 1;
     voters.push(userData.data.uid);
-    updateData(routeTrekId, { organizer, id, imageURL, date, description, location, likes, voters, })
+    updateData(routeTrekId, { organizer, id, imageURL, date, description, location, owner, likes, voters, })
       .then((e) => console.log("Success update"))
       .catch((e) => console.log(e.error));
     
@@ -83,7 +83,7 @@ const onBtnLike = (e) => {
             Likes: <span>{{ currentLikes }}</span>
           </p>
           <p class="infoType">
-            Organizer: <span>{{ userData.data.displayName }}</span>
+            Organizer: <span>{{ owner }}</span>
           </p>
         </div>
 

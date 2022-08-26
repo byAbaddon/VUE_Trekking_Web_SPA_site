@@ -21,7 +21,7 @@ const onBtnAddTrek = e => {
   // ◦add  Likes: number starting from 0;
      const newTrekObj = {
         location: location.value, imageURL: image.value, 'organizer' : userData.localData.uid,
-        date: date.value, description: description.value, likes: 0, voters: []
+        date: date.value, description: description.value, likes: 0, voters: [], owner : userData.localData.displayName
       };
             
   //check is trek in collection

@@ -7,7 +7,7 @@ import { ref } from "vue";
 const trekStore = useTrekStore();
 const router = useRouter();
 const routeTrekId = useRoute().params.id
-let { organizer, id, imageURL, date, description, location, likes, voters } = trekStore.allTreks.find((x) => x.id == routeTrekId)
+let { organizer, id, imageURL, date, description, location, owner, likes, voters } = trekStore.allTreks.find((x) => x.id == routeTrekId)
 let currentLikes = ref(likes)
 
 let showAlert = ref(false)
@@ -22,7 +22,7 @@ const onBtnAddTrek = () => {
   const imageURL = form.get('imageURL')
   const likes = Number(form.get('likes'))
   
-  updateData(id, { organizer, id, imageURL, date, description, location, likes, voters } )
+  updateData(id, { organizer, id, imageURL, date, description, location, owner, likes, voters } )
     .then(e => {
       currentLikes.value = likes
       showAlert.value = true
