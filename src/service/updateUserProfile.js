@@ -6,7 +6,7 @@ const updateUserProfile = async (displayName, photoURL) => {
     displayName: displayName,
     photoURL: photoURL
   }).then(() => {
-    // Profile updated!
+    // Profile updated success!
     console.log('Success update profile');
     return 'Success update profile'
   }).catch((error) => {
