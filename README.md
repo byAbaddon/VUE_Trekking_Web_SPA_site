@@ -1,4 +1,14 @@
-#  trekking_web_spa_vue3_vue_pinia
+# Trek_Web_SPA
+### Firebase Hosting Preview channels : https://
+
+#### video intro: https://youtu.be/IBSbLYzb8wM
+## Using: vue3 composition vuex-pinia and vuetify 3.0 beta + bootstap
+## Support phone responsibility.
+
+![treks](https://user-images.githubusercontent.com/51271834/187416785-5659ad55-b335-4a29-bbb0-ee22ebe0f99b.png)
+
+
+
 ## Using:
 This template should help get you started developing with Vue 3 in Vite.
 
