@@ -1,4 +1,5 @@
 <script setup>
+import { useDataStore  } from "../src/stores/userData";
 import { useRouter} from 'vue-router'  
 import HeaderComponent from '../src/components/HeaderComponent.vue'
 import FooterComponent from '../src/components/FooterComponent.vue'
@@ -6,12 +7,12 @@ import { defineComponent, onBeforeMount, onMounted  } from 'vue';
 
 defineComponent(() => { HeaderComponent, FooterComponent })
 const router = useRouter()
+const userData = useDataStore()
 
 onMounted(() => {
   if (localStorage.getItem('auth') == null) {
     router.push("/").catch(() => { })
   }
-
 })
 
 onBeforeMount(() => {

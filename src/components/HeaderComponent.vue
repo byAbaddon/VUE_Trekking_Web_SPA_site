@@ -1,7 +1,9 @@
 <script setup>
 import { useDataStore } from "@/stores/userData";
+import { onMounted} from "@vue/runtime-core";
 import { useRouter, useRoute } from "vue-router";
 import { useDisplay } from 'vuetify'
+
 
 const { mobile, name } = useDisplay()
 const userData = useDataStore()
@@ -11,6 +13,16 @@ const router = useRouter()
 const items = ['Home', 'Login', 'Register']
 const items2 = ['Add-trek', 'User-statistic', 'Logout']
 
+
+onMounted(() => {  // if page is refresh/reloaded; Reset localeStore  and route to Home page 
+if (localStorage.getItem('auth') != null) {
+    const userName = document.getElementById('user')
+  if (userName.textContent == 'Anonymous') {
+      userData.logout()
+      router.push("/").catch(() => { })
+   }
+ }  
+})
 
 const onMenuBtn = path => {
   if (path == 'Home') {
@@ -74,7 +86,7 @@ const onMenuBtn = path => {
          
         <router-link :to="`${route.name == 'user' ? '/' : '/user-statistic'}`">
           <a class="header-hover py-2 d-none d-md-inline-block"
-            >Hello, <span class=" text-grey text-decoration-underline" >{{ userData.data.displayName || 'Anonymous'}}</span> </a
+            >Hello, <span id="user" class="text-grey text-decoration-underline" >{{ userData.data.displayName || 'Anonymous'}}</span> </a
           >
         </router-link>
   
