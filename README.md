@@ -1,5 +1,5 @@
 # Trek_Web_SPA
-### Firebase Hosting Preview channels : https://
+### Firebase Hosting channels : https://routingbase-21148.web.app
 
 #### video intro: https://youtu.be/IBSbLYzb8wM
 ## Using: vue3 composition vuex-pinia and vuetify 3.0 beta + bootstap
